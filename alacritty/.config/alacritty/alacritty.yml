@@ -1,0 +1,14 @@
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+
+window:
+  opacity: 0.75 #From 0.00 to 1.00
+  padding:
+    x: 16
+    y: 16
+
+font:
+  size: 14.0
+  normal:
+    family: MesloLGS NF
+    style: Regular
