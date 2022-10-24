@@ -1,110 +1,97 @@
-// # Modification by 	-  z0mbi3
-// # Source 			-  https://github.com/gh0stzk/dotfiles
-// # Maintainer 		-  z0mbi3.zk@protonmail.com
-
-/** Original Work
- * Author : Aditya Shakya (adi1090x)
- * Github : https://github.com/adi1090x/rofi
- **/
-
-configuration {
-	modi: 						"drun";
-	icon-theme: 				"Papirus-Dark";
-	application-fallback-icon: 	"Adwaita";
-    show-icons:                 true;
-	drun-display-format:        "{name}";
-	disable-history:            true;
-	sidebar-mode: 				false;
-}
-
 /*****----- Global Properties -----*****/
 * {
-    font:                        "DejaVu Sans 24";
-    background:                  #1e1e2e;
-    background-alt:              #1e1e2eE0;
-    foreground:                  #cdd6f4;
-    selected:                    #89b4fa;
+    background:     #1E1D2FFF;
+    background-alt: #282839FF;
+    foreground:     #D9E0EEFF;
+    selected:       #7AA2F7FF;
+    active:         #ABE9B3FF;
+    urgent:         #F28FADFF;
+    font: "MesloLGS NF 16";
+}
+
+/*****----- Configuration -----*****/
+configuration {
+	modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               "";
+	drun-display-format:        "{name}";
 }
 
 /*****----- Main Window -----*****/
 window {
-    /* properties for window widget */
     transparency:                "real";
     location:                    center;
     anchor:                      center;
-    fullscreen:                  false;
-    width:                       50%;
-    height:                      50%;
+    fullscreen:                  true;
+    width:                       3840px;
+    height:                      2160px;
     x-offset:                    0px;
     y-offset:                    0px;
 
-    /* properties for all widgets */
     enabled:                     true;
-    border-radius:               6px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            black / 10%;
     cursor:                      "default";
-    background-color:            @background-alt;
 }
 
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     0px;
+    spacing:                     100px;
+    margin:                      0px;
+    padding:                     400px 550px;
+    border:                      0px solid;
+    border-radius:               0px 0px 0px 0px;
+    border-color:                @selected;
     background-color:            transparent;
-    orientation:                 vertical;
-    children:                    [ "inputbar", "listbox" ];
-}
-
-listbox {
-    spacing:                     10px;
-    padding:                     10px 5px 10px 5px;
-    background-color:            transparent;
-    orientation:                 vertical;
-    children:                    [ "message", "listview" ];
+    children:                    [ "inputbar", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     16px;
-    padding:                     32px 16px;
-    background-color:            @background;
-    background-image:            url("~/.config/bspwm/assets/em-rofi.webp", width);
+    spacing:                     20px;
+    margin:                      0% 25%;
+    padding:                     32px;
+    border:                      0px solid;
+    border-radius:               10px;
+    border-color:                @selected;
+    background-color:            white / 5%;
     text-color:                  @foreground;
-    orientation:                 horizontal;
-    children:                    [ "textbox-prompt-colon", "entry" ];
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
 }
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "";
-    padding:                     16px;
-    border-radius:               8px;
-    background-color:            @background-alt;
+    str:                         "::";
+    background-color:            transparent;
     text-color:                  inherit;
 }
 entry {
     enabled:                     true;
-    expand:                      true;
-    padding:                     16px;
-    border-radius:               8px;
-    background-color:            @background-alt;
+    background-color:            transparent;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "Search";
     placeholder-color:           inherit;
 }
-dummy {
-    expand:                      true;
-    background-color:            transparent;
-}
-
-
 
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     3;
-    cycle:                       false;
+    columns:                     8;
+    lines:                       4;
+    cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
@@ -113,58 +100,72 @@ listview {
     fixed-columns:               true;
     
     spacing:                     0px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
+}
+scrollbar {
+    handle-width:                5px ;
+    handle-color:                @selected;
+    border-radius:               0px;
+    background-color:            @background-alt;
 }
 
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     16px;
-    padding:                     16px;
-    border-radius:               4px;
+    spacing:                     30px;
+    margin:                      0px;
+    padding:                     35px 10px;
+    border:                      0px solid;
+    border-radius:               15px;
+    border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
+    orientation:                 vertical;
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            inherit;
-    text-color:                  inherit;
+    background-color:            transparent;
+    text-color:                  @foreground;
 }
 element selected.normal {
-    background-color:            @selected;
-    text-color:                  @background;
+    background-color:            white / 5%;
+    text-color:                  @foreground;
 }
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        64px;
+    size:                        128px;
     cursor:                      inherit;
 }
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
+    highlight:                   inherit;
     cursor:                      inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.0;
+    horizontal-align:            0.5;
 }
 
 /*****----- Message -----*****/
-message {
-    background-color:            transparent;
+error-message {
+    padding:                     100px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            black / 10%;
+    text-color:                  @foreground;
 }
 textbox {
-    padding:                     12px;
-    border-radius:               5px;
-    background-color:            @background-alt;
+    background-color:            transparent;
     text-color:                  @foreground;
     vertical-align:              0.5;
     horizontal-align:            0.0;
-}
-error-message {
-    padding:                     12px;
-    border-radius:               5px;
-    background-color:            @background;
-    text-color:                  @foreground;
+    highlight:                   none;
 }
