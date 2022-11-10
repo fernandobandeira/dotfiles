@@ -16,6 +16,8 @@ export VISUAL=nvim;
 export EDITOR=nvim;
 export SUDO_PROMPT="passwd: "
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export COCKROACH_BINARY="/home/fernando/git/alt/backend-services/cockroach.linux-amd64/cockroach"
+
 
 setopt interactivecomments # allow comments in interactive mode
 setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
@@ -119,6 +121,7 @@ zinit light zsh-users/zsh-completions
 
 alias ls="exa --icons --group-directories-first --color=auto"
 alias la="exa -a --icons --group-directories-first --color=auto"
+alias ssh='TERM=xterm-256color ssh'
 
 toppy() {
     history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n 21

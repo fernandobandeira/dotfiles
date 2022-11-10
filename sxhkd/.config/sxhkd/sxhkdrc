@@ -17,6 +17,9 @@ super + alt + @space
 super + Escape
 	pkill -USR1 -x sxhkd
 
+Print
+	flameshot gui --clipboard
+
 #
 # bspwm hotkeys
 #

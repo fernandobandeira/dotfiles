@@ -7,5 +7,7 @@ export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 sxhkd &
 picom &
 polybar catppuccin &
+dunst &
+flameshot &
 [ ! -s ~/.config/mpd/pid ] && mpd &
 exec dbus-launch bspwm
